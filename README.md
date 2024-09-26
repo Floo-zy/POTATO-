@@ -6,7 +6,7 @@ Welcome to the POTATO project! This prototype web application allows users to an
 
 The main goals of this project are:
 
-- Ingest and process tweet data from provided TSV files.
+- Ingest and process tweet data from provided TSV files. I have opted for using [Polars](https://pola.rs/) instead of Pandas since its extremely fast and can process larger than memory datasets. It is built on rust owing to its speed.
 - Implement a RESTful API using Flask for querying the tweet data.
 - Create a user-friendly frontend with Streamlit to display the search results.
 
@@ -59,20 +59,28 @@ POTATO/
     ```py
     py -m venv .venv
     ```
+3. **Create a new folder called data**
+   ```
+   add your .tsv file in here
+   ```
 
-3. **Install requirements.txt**
+4. **Change path in .env file**
+   ```bash
+   edit the .env file present inside app directory and then change the DATA_FILE_PATH to the relative path of the file you've pasted in data folder.
+   ```
+5. **Install requirements.txt**
 
     ```py
     pip install -r requirements.txt 
     ```
 
-4. **Run the following commands**
+6. **Run the following commands**
     ```py
     python app/app.py
     streamlit run streamlit_app/app.py
     ```
 
-5. **To run tests**
+7. **To run tests**
     ```py
     pytest
     ```
